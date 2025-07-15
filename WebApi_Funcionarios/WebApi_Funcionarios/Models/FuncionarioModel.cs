@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using WebApi_Funcionarios.Enums;
 namespace WebApi_Funcionarios.Models
 {
+    
     public class FuncionarioModel
     {
         [Key]
