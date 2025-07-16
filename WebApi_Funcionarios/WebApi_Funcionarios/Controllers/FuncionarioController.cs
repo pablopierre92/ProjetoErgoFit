@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Security.Cryptography.Xml;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using WebApi_Funcionarios.Models;
@@ -23,10 +24,44 @@ namespace WebApi_Funcionarios.Controllers
             return Ok( await _funcionarioInterface.GetFuncionarios());
         }
 
+        [HttpGet("{id}")]
+
+        public async Task<ActionResult<ServiceResponse<FuncionarioModel>>> GetFuncionarioById(int id)
+        {
+            ServiceResponse<FuncionarioModel> serviceResponse = await _funcionarioInterface.GetFuncionarioById(id);
+
+            return Ok( serviceResponse );
+        }
+
+
         [HttpPost]
         public async Task<ActionResult<ServiceResponse<List<FuncionarioModel>>>> CreateFuncionario(FuncionarioModel novoFuncionario)
         {
             return Ok( await _funcionarioInterface.CreateFuncionario(novoFuncionario));
+        }
+
+        [HttpPut("editaFuncionario")]
+        public async Task<ActionResult<ServiceResponse<List<FuncionarioModel>>>> UpdateFuncionario(FuncionarioModel editadoFuncionario)
+        {
+            ServiceResponse<List<FuncionarioModel>> serviceResponse = await _funcionarioInterface.UpdateFuncionario(editadoFuncionario);
+
+            return Ok( serviceResponse );
+        }
+
+
+        [HttpPut("inativaFuncionario")]
+        public async Task<ActionResult<ServiceResponse<List<FuncionarioModel>>>> InativaFuncionario(int id)
+        {
+            ServiceResponse<List<FuncionarioModel>> serviceResponse = await _funcionarioInterface.InativaFuncionario(id);
+            return Ok( serviceResponse );
+        }
+
+        [HttpDelete("deletaFuncionario")]
+        public async Task<ActionResult<ServiceResponse<List<FuncionarioModel>>>> DeleteFuncionario(int id)
+        {
+             ServiceResponse<List<FuncionarioModel>> serviceResponse = await _funcionarioInterface.DeleteFuncionario(id);
+
+            return Ok(serviceResponse);
         }
     }
 }
