@@ -1,0 +1,12 @@
+export interface Funcionario{
+    id? : number;
+    nome: string;
+    sobrenome: string;
+    departamento: string;
+    ativo: boolean;
+    turno: string;
+    exercicio: string;
+    dataCriacao?: string;
+    dataAlteracao?: string;
+
+}

@@ -4,6 +4,19 @@ using WebApi_Funcionarios.Service.FuncionarioService;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+// CORS policy
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularApp", policy =>
+    {
+        policy.WithOrigins("http://localhost:4200")
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -18,6 +31,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 });
 
 var app = builder.Build();
+
+// Use CORS antes do UseAuthorization
+app.UseCors("AllowAngularApp");
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
