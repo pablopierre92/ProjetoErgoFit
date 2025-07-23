@@ -39,6 +39,6 @@ search(event : Event){
   this.funcionarios = this.funcionariosGeral.filter(funcionario => {
     return funcionario.nome.toLowerCase().includes(value);
   })
-
+  
 }
 }
