@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FuncionarioService } from '../../services/funcionario-service';
 import { Funcionario } from '../../models/Funcionarios';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
