@@ -1,6 +1,6 @@
-<h1>Cadastrar Funcionários</h1>
+<h1>{{btnTitulo}}</h1>
 
-<form action="">
+<form [formGroup]="funcionarioForm" (ngSubmit)="submit()" #formDit="ngForm">
 
     <div class="input_box">
         <label for="">Nome:</label>
@@ -40,22 +40,21 @@
 
     <div class="input_box">
         <label for="">Exercicio:</label>
-        <select id="departamento" formControlName="departamento" required>
+        <select id="exercicio" formControlName="exercicio" required>
         <option value="Pescoco">Pescoco</option>
         <option value="Ombro">Ombro</option>
         <option value="Braco">Braco</option>
         <option value="Costas">Costas</option>
         <option value="Mao">Mao</option>
         <option value="Pernas">Pernas</option>
-        <option value="Gerencia">Gerencia</option>
         <option value="Pes">Pes</option>
         <option value="Cabeca ">Cabeca </option>
     </select>
     </div>
 
     <div class="btn-box">
-        <button type="submit">Cadastrar</button>
-        <button>Voltar</button>
+        <button type="submit" [disabled]="!funcionarioForm.valid" >{{btnAcao}}</button>
+        <button routerLink="/">Voltar</button>
 
     </div>
 

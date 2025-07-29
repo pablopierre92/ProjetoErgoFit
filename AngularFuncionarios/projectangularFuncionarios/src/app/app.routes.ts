@@ -5,6 +5,7 @@ import { NgModule } from '@angular/core';
 import { Home } from './pages/home/home';
 
 
+
 export const routes: Routes = [
     {path:'cadastro' , component: Cadastro},
     {path: '', component: Home}
