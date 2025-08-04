@@ -26,4 +26,10 @@ CreateFuncionario(funcionario: Funcionario) : Observable<Response<Funcionario[]>
   const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
   return this.http.post<Response<Funcionario[]>>(`${this.apiUrl}`, funcionario);
 }
+
+EditarFuncionario(funcionario : Funcionario) : Observable<Response<Funcionario[]>>{
+  const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+  return this.http.put<Response<Funcionario[]>>(`${this.apiUrl}/editaFuncionario`,funcionario);
+}
+
 }

@@ -2,6 +2,8 @@
 
 <form [formGroup]="funcionarioForm" (ngSubmit)="submit()" #formDit="ngForm">
 
+    <input typpe="hidden" formControlName="id">
+
     <div class="input_box">
         <label for="">Nome:</label>
         <input type="text" formControlName="nome" placeholder="Insira o nome!" required>

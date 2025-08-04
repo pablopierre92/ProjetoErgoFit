@@ -22,11 +22,11 @@ export class FuncionarioForm implements OnInit {
 
   ngOnInit(): void {
     this.funcionarioForm = new FormGroup({
-        id: new FormControl(0),
+        id: new FormControl(this.dadosFuncionario ? this.dadosFuncionario.id : 0),
         nome: new FormControl(this.dadosFuncionario ? this.dadosFuncionario.nome : '', [Validators.required]),
         sobrenome: new FormControl(this.dadosFuncionario ? this.dadosFuncionario.sobrenome :'', [Validators.required]),
         departamento: new FormControl(this.dadosFuncionario ? this.dadosFuncionario.departamento :'', [Validators.required]),
-        ativo: new FormControl(true),
+        ativo: new FormControl(this.dadosFuncionario ? this.dadosFuncionario.ativo : true),
         turno: new FormControl(this.dadosFuncionario ? this.dadosFuncionario.turno :'', [Validators.required]),
         exercicio: new FormControl(this.dadosFuncionario ? this.dadosFuncionario.exercicio :'', [Validators.required]),
         dataCriacao: new FormControl(new Date),
@@ -36,8 +36,6 @@ export class FuncionarioForm implements OnInit {
   }
 
   submit(){
-    console.log(this.funcionarioForm.value)
-
     this.onSubmit.emit(this.funcionarioForm.value);
   }
 }
