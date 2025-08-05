@@ -32,4 +32,9 @@ EditarFuncionario(funcionario : Funcionario) : Observable<Response<Funcionario[]
   return this.http.put<Response<Funcionario[]>>(`${this.apiUrl}/editaFuncionario`,funcionario);
 }
 
+InativaFuncionario(id : number) : Observable<Response<Funcionario[]>>{
+  const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+  return this.http.put<Response<Funcionario[]>>(`${this.apiUrl}/inativaFuncionario/${id}`,id); //Falta arrumar
+  
+}
 }
