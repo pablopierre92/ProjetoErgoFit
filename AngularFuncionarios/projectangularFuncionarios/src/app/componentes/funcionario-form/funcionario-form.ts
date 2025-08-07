@@ -2,10 +2,15 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from '@angular/forms';
 import { Funcionario } from '../../models/Funcionarios';
 import { RouterModule } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import {MatSelectModule} from '@angular/material/select';
 
 @Component({
+  standalone: true,
   selector: 'app-funcionario-form',
-  imports: [RouterModule, ReactiveFormsModule, FormsModule],
+  imports: [RouterModule, ReactiveFormsModule, FormsModule, MatButtonModule, MatCardModule, MatInputModule, MatSelectModule],
   templateUrl: './funcionario-form.html',
   styleUrl: './funcionario-form.css'
 })

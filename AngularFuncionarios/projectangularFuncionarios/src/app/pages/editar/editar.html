@@ -1,3 +1,16 @@
+@if (funcionario()) {
+    <div>
+        <app-funcionario-form 
+            [btnAcao]="btnAcao" 
+            [btnTitulo]="btnTitulo" 
+            [dadosFuncionario]="funcionario()" 
+            (onSubmit)="editarFuncionario($event)">
+        </app-funcionario-form>
+    </div>
+}
+
+<!--
 <div>
     <app-funcionario-form [btnAcao]="btnAcao" [btnTitulo]="btnTitulo" [dadosFuncionario]="funcionario" (onSubmit)="editarFuncionario($event)"> </app-funcionario-form>
 </div>
+-->

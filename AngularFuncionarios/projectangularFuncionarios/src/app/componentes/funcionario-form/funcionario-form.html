@@ -1,63 +1,84 @@
-<h1>{{btnTitulo}}</h1>
+<mat-card>
+  <h1>{{ btnTitulo }}</h1>
 
-<form [formGroup]="funcionarioForm" (ngSubmit)="submit()" #formDit="ngForm">
-
-    <input typpe="hidden" formControlName="id">
+  <form [formGroup]="funcionarioForm" (ngSubmit)="submit()" #formDit="ngForm">
+    <input typpe="hidden" formControlName="id" />
 
     <div class="input_box">
-        <label for="">Nome:</label>
-        <input type="text" formControlName="nome" placeholder="Insira o nome!" required>
+      <mat-form-field>
+        <mat-label for="">Nome:</mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="nome"
+          placeholder="Insira o nome!"
+          required
+        />
+      </mat-form-field>
     </div>
 
     <div class="input_box">
-        <label for="">Sobrenome:</label>
-        <input type="text" formControlName="sobrenome" placeholder="Insira o sobrenome!" required>
+      <mat-form-field>
+        <mat-label for="">Sobrenome:</mat-label>
+        <input
+          matInput
+          type="text"
+          formControlName="sobrenome"
+          placeholder="Insira o sobrenome!"
+          required
+        />
+      </mat-form-field>
     </div>
 
     <div class="input_box">
-        <label for="">Departamento:</label>
-        <select id="departamento" formControlName="departamento" required>
-        <option value="RH">RH</option>
-        <option value="Financeiro">Financeiro</option>
-        <option value="Compras">Compras</option>
-        <option value="Atendimento">Atendimento</option>
-        <option value="Limpeza">Limpeza</option>
-        <option value="Administracao">Administracao</option>
-        <option value="Gerencia">Gerencia</option>
-        <option value="Producao">Producao</option>
-        <option value="Comercial">Comercial</option>
-        <option value="Marketing">Marketing</option>
-        <option value="Estoque ">Estoque </option>
-    </select>
+      <mat-form-field>
+        <mat-label for="">Departamento:</mat-label>
+        <mat-select id="departamento" formControlName="departamento" required>
+          <mat-option value="RH">RH</mat-option>
+          <mat-option value="Financeiro">Financeiro</mat-option>
+          <mat-option value="Compras">Compras</mat-option>
+          <mat-option value="Atendimento">Atendimento</mat-option>
+          <mat-option value="Limpeza">Limpeza</mat-option>
+          <mat-option value="Administracao">Administracao</mat-option>
+          <mat-option value="Gerencia">Gerencia</mat-option>
+          <mat-option value="Producao">Producao</mat-option>
+          <mat-option value="Comercial">Comercial</mat-option>
+          <mat-option value="Marketing">Marketing</mat-option>
+          <mat-option value="Estoque ">Estoque </mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
 
     <div class="input_box">
-        <label for="">Turno:</label>
-        <select id="turno" formControlName="turno" required>
-        <option value="Manhã">Manhã</option>
-        <option value="Tarde">Tarde</option>
-        <option value="Noite">Noite</option>
-    </select>
+      <mat-form-field>
+        <mat-label for="">Turno:</mat-label>
+        <mat-select id="turno" formControlName="turno" required>
+          <mat-option value="Manha">Manhã</mat-option>
+          <mat-option value="Tarde">Tarde</mat-option>
+          <mat-option value="Noite">Noite</mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
 
     <div class="input_box">
-        <label for="">Exercicio:</label>
-        <select id="exercicio" formControlName="exercicio" required>
-        <option value="Pescoco">Pescoco</option>
-        <option value="Ombro">Ombro</option>
-        <option value="Braco">Braco</option>
-        <option value="Costas">Costas</option>
-        <option value="Mao">Mao</option>
-        <option value="Pernas">Pernas</option>
-        <option value="Pes">Pes</option>
-        <option value="Cabeca ">Cabeca </option>
-    </select>
+      <mat-form-field>
+        <mat-label for="">Exercicio:</mat-label>
+        <mat-select id="exercicio" formControlName="exercicio" required>
+          <mat-option value="Pescoco">Pescoco</mat-option>
+          <mat-option value="Ombro">Ombro</mat-option>
+          <mat-option value="Braco">Braco</mat-option>
+          <mat-option value="Costas">Costas</mat-option>
+          <mat-option value="Mao">Mao</mat-option>
+          <mat-option value="Pernas">Pernas</mat-option>
+          <mat-option value="Pes">Pes</mat-option>
+          <mat-option value="Cabeca ">Cabeca </mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
 
     <div class="btn-box">
-        <button type="submit" [disabled]="!funcionarioForm.valid" >{{btnAcao}}</button>
-        <button routerLink="/">Voltar</button>
-
+      <button type="submit" [disabled]="!funcionarioForm.valid" matButton="filled">{{ btnAcao }} </button>
+      <button routerLink="/" mat-raised-button>Voltar</button>
     </div>
-
-</form>
+  </form>
+</mat-card>

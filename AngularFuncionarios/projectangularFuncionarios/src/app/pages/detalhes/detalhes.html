@@ -1,52 +1,144 @@
-<div>
+<!-- Loading (opcional) -->
+@if (loading()) {
+    <div style="text-align: center; padding: 2rem;">
+        <p>Carregando detalhes...</p>
+    </div>
+}
+
+<!-- Error (opcional) -->
+@if (error()) {
+    <div style="text-align: center; padding: 2rem; color: red;">
+        <p>{{ error() }}</p>
+        <button (click)="refresh()">Tentar Novamente</button>
+    </div>
+}
+<mat-card>
+<!-- Conteúdo principal - sua estrutura original -->
+@if (funcionario() && !loading()) {
+    <div>
+        <h1>Detalhes Funcionários</h1>
+    </div>
+
+    <div>
+        <form>
+            <div class="input_box">
+                <mat-form-field>
+                    <mat-label>Nome:</mat-label>
+                    <input matInput type="text" value="{{funcionario()?.nome}}" disabled>
+                </mat-form-field>
+            </div>
+
+            <div class="input_box">
+                <mat-form-field>
+                    <mat-label>Sobrenome:</mat-label>
+                    <input matInput type="text" value="{{funcionario()?.sobrenome}}" disabled>
+                </mat-form-field>
+            </div>
+
+            <div class="input_box">
+                <mat-form-field>
+                    <mat-label>Departamento:</mat-label>
+                    <input matInput type="text" value="{{funcionario()?.departamento}}" disabled>
+                </mat-form-field>
+            </div>
+
+            <div class="input_box">
+                <mat-form-field>
+                    <mat-label>Turno:</mat-label>
+                    <input matInput type="text" value="{{funcionario()?.turno}}" disabled>
+                </mat-form-field>
+            </div>
+
+            <div class="input_box">
+                <mat-form-field>
+                    <mat-label>Exercício:</mat-label>
+                    <input matInput type="text" value="{{funcionario()?.exercicio}}" disabled>
+                </mat-form-field>
+            </div>
+
+            <div class="input_box">
+                <mat-form-field>
+                    <mat-label>Situação:</mat-label>
+                    <input matInput type="text" value="{{funcionario()?.ativo == true ? 'Ativo' : 'Inativo'}}" disabled>
+                </mat-form-field>
+            </div>
+
+            <div class="input_box">
+                <mat-form-field>
+                    <mat-label>Data de Criação:</mat-label>
+                    <input matInput type="text" value="{{funcionario()?.dataCriacao}}" disabled>
+                </mat-form-field>
+            </div>
+
+            <div class="input_box">
+                <mat-form-field>
+                    <mat-label>Data de Alteração:</mat-label>
+                    <input matInput type="text" value="{{funcionario()?.dataAlteracao}}" disabled>
+                </mat-form-field>
+            </div>
+
+            <div class="btn-box">
+                <button matButton="filled"
+                    (click)="InativaFuncionario()" 
+                    [disabled]="inativando()">
+                    {{ inativando() ? 'Inativando...' : 'Inativar Usuário' }} 
+                </button>
+                <button matButton (click)="voltar()">Voltar</button>
+            </div>
+        </form>
+    </div>
+}
+</mat-card>
+<!--<div>
 <h1>Detalhes Funcionários</h1>
 </div>
 
 <div >
     <form>
-        <div class="input-box">
-            <label>Nome:</label>
+        <div class="input_box">
+            <mat-label>Nome:</mat-label>
             <input type="text" value="{{funcionario?.nome}}" disabled>
         </div>
 
-        <div class="input-box">
-            <label>Sobrenome:</label>
+        <div class="input_box">
+            <mat-label>Sobrenome:</mat-label>
             <input type="text" value="{{funcionario?.sobrenome}}" disabled>
         </div>
 
-        <div class="input-box">
-            <label>Departamento:</label>
+        <div class="input_box">
+            <mat-label>Departamento:</mat-label>
             <input type="text" value="{{funcionario?.departamento}}" disabled>
         </div>
 
-        <div class="input-box">
-            <label>Turno:</label>
+        <div class="input_box">
+            <mat-label>Turno:</mat-label>
             <input type="text" value="{{funcionario?.turno}}" disabled>
         </div>
 
-        <div class="input-box">
-            <label>Exercício:</label>
+        <div class="input_box">
+            <mat-label>Exercício:</mat-label>
             <input type="text" value="{{funcionario?.exercicio}}" disabled>
         </div>
 
-        <div class="input-box">
-            <label>Situação:</label>
+        <div class="input_box">
+            <mat-label>Situação:</mat-label>
             <input type="text" value="{{funcionario?.ativo == true ? 'Ativo' : 'Inativo'}}" disabled>
         </div>
 
-        <div class="input-box">
-            <label>Data de Criação:</label>
+        <div class="input_box">
+            <mat-label>Data de Criação:</mat-label>
             <input type="text" value="{{funcionario?.dataCriacao}}" disabled>
         </div>
 
-        <div class="input-box">
-            <label>Data de Alteração:</label>
+        <div class="input_box">
+            <mat-label>Data de Alteração:</mat-label>
             <input type="text"  value="{{funcionario?.dataAlteracao}}" disabled>
         </div>
 
         <div class="btn-box">
             <button (click)="InativaFuncionario()">Inativar Usuário</button>
-            <button routerLink=''>Voltar</button> <!-- Falta arrumar o voltar-->
+            <button routerLink=''>Voltar</button>  Falta arrumar o voltar
         </div>
     </form>
 </div>
+-->
