@@ -15,5 +15,7 @@ namespace WebApi_Funcionarios.Service.FuncionarioService
         Task<ServiceResponse<List<FuncionarioModel>>> DeleteFuncionario(int id);
 
         Task<ServiceResponse<List<FuncionarioModel>>> InativaFuncionario(int id);
+
+        Task<ServiceResponse<List<FuncionarioModel>>> AtivaFuncionario(int id);
     }
 }

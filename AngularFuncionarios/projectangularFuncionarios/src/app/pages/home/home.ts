@@ -16,12 +16,23 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTableModule } from '@angular/material/table';
 import { MatChipsModule } from '@angular/material/chips';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import { DialogModule } from '@angular/cdk/dialog';
+import { Excluir } from '../../componentes/excluir/excluir';
+
 
 @Component({
   selector: 'app-home',
   imports: [
-    CommonModule, 
-    RouterModule],
+    CommonModule,
+    RouterModule,
+    MatTableModule,
+    MatCardModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDialogModule
+],
   templateUrl: './home.html',
   styleUrl: './home.css'
 })
@@ -33,11 +44,14 @@ export class Home implements OnInit, OnDestroy {
   loading = signal(false);
   error = signal<string | null>(null);
 
+  colunas = ['Situação', 'Nome', 'Sobrenome', 'Departamento', 'Exercicio', 'Ações', 'Excluir']
+
   private destroy$ = new Subject<void>();
 
   constructor(
     private funcionarioService: FuncionarioService,
-    private router: Router
+    private router: Router,
+    public dialog: MatDialog
   ) {}
 
   ngOnInit(): void {
@@ -103,6 +117,16 @@ export class Home implements OnInit, OnDestroy {
     );
     
     this.funcionarios.set(funcionariosFiltrados);
+  }
+
+  OpenDialog(id : number){
+    this.dialog.open(Excluir, {
+      width: '350px',
+      height: '350px',
+      data: {
+        id : id
+      }
+    });
   }
 
   // Método para navegação programática (se precisar)
